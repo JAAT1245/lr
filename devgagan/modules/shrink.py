@@ -56,9 +56,11 @@ async def token_handler(client, message):
         return
     user_id = message.chat.id
     if len(message.command) <= 1:
-        image_url = "https://i.postimg.cc/v8q8kGyz/startimg-1.jpg"
-        join_button = InlineKeyboardButton("Join our Channel", url="https://t.me/team_spy_pro")
-        keyboard = InlineKeyboardMarkup([[join_button]])
+        image_url = "https://iili.io/2eoMH92.jpg"
+        join_channel_button = InlineKeyboardButton("Join Channel", url="https://t.me/TARGETALLCOURSE")
+        buy_premium_button = InlineKeyboardButton("BUY PREMIUM 💫", url="https://t.me/FREE_COURSE2_BOT")
+
+        keyboard = InlineKeyboardMarkup([[join_channel_button], [buy_premium_button]])
 
         # Send the message with the image and keyboard
         await message.reply_photo(
