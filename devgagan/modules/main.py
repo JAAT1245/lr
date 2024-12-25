@@ -44,7 +44,7 @@ async def single_link(_, message):
         return    
     freecheck = await chk_user(message, user_id)
     if freecheck == 1 and FREEMIUM_LIMIT == 0 and user_id not in OWNER_ID:
-        await message.reply("Freemium service is currently not available. Upgrade to premium for access.")
+        await message.reply("Freemium service is currently not available. Upgrade to premium for access CONTACT @FREE_COURSE2_BOT.")
         return
     can_proceed, response_message = await check_interval(user_id, freecheck)
     if not can_proceed:
@@ -143,8 +143,11 @@ async def batch_link(_, message):
     if not can_proceed:
         await message.reply(response_message)
         return
-    join_button = InlineKeyboardButton("Join Channel", url="https://t.me/team_spy_pro")
-    keyboard = InlineKeyboardMarkup([[join_button]])
+    join_channel_button = InlineKeyboardButton("Join Channel", url="https://t.me/TARGETALLCOURSE")
+    buy_premium_button = InlineKeyboardButton("BUY PREMIUM 💫", url="https://t.me/FREE_COURSE2_BOT")
+
+    keyboard = InlineKeyboardMarkup([[join_channel_button], [buy_premium_button]])
+    
     pin_msg = await app.send_message(
         user_id,
         "Batch process started ⚡\n__Processing: 0/{cl}__\n\n**__Powered by Team SPY__**",
@@ -168,7 +171,7 @@ async def batch_link(_, message):
                         msg = await app.send_message(message.chat.id, f"Processing link {url}...")
                         await get_msg(None, user_id, msg.id, link, 0, message)
                         await pin_msg.edit_text(
-                        f"Batch process started ⚡\n__Processing: {i - cs + 1}/{cl}__\n\n**__Powered by Team SPY__**",
+                        f"Batch process started ⚡\n__Processing: {i - cs + 1}/{cl}__\n\n**__Powered by CR CHOUDHARY__**",
                         reply_markup=keyboard
                         )
                         await asyncio.sleep(5)
@@ -179,7 +182,7 @@ async def batch_link(_, message):
             await set_interval(user_id, interval_minutes=20)
             await app.send_message(message.chat.id, "Batch completed successfully! 🎉")
             await pin_msg.edit_text(
-                        f"Batch process completed for {cl} messages enjoy 🌝\n\n**__Powered by Team SPY__**",
+                        f"Batch process completed for {cl} messages enjoy 🌝\n\n**__Powered by CR CHOUDHARY__**",
                         reply_markup=keyboard
             )
             return
@@ -217,7 +220,7 @@ async def batch_link(_, message):
                             )
                             await asyncio.sleep(2)
                             await pin_msg.edit_text(
-                            f"Batch process started ⚡\n__Processing: {i - cs + 1}/{cl}__\n\n**__Powered by Team SPY__**",
+                            f"Batch process started ⚡\n__Processing: {i - cs + 1}/{cl}__\n\n**__Powered by CR CHOUDHARY__**",
                             reply_markup=keyboard
                             )
                             await asyncio.sleep(10)
@@ -231,7 +234,7 @@ async def batch_link(_, message):
         await app.send_message(message.chat.id, "Batch completed successfully! 🎉")
         await set_interval(user_id, interval_minutes=20)
         await pin_msg.edit_text(
-                        f"Batch completed for {cl} messages ⚡\n\n**__Powered by Team SPY__**",
+                        f"Batch completed for {cl} messages ⚡\n\n**__Powered by CR CHOUDHARY__**",
                         reply_markup=keyboard
         )
     except FloodWait as fw:
