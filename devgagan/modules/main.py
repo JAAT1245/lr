@@ -150,7 +150,7 @@ async def batch_link(_, message):
     
     pin_msg = await app.send_message(
         user_id,
-        "Batch process started ⚡\n__Processing: 0/{cl}__\n\n**__Powered by Team SPY__**",
+        "Batch process started ⚡\n__Processing: 0/{cl}__\n\n**__Powered by CR CHOUDHARY__**",
         reply_markup=keyboard
     )
     try:
